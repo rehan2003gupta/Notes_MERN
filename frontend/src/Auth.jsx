@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+const BASE_URL = import.meta.env.VITE_API_URL
 function Auth({ setUser }) {
   const [isLogin, setIsLogin] = useState(true);
   const [name, setName] = useState("");
@@ -10,9 +10,8 @@ function Auth({ setUser }) {
     e.preventDefault();
 
     const url = isLogin
-      ? "https://notes-mern-7jjc.onrender.com/api/auth/login"
-      : "https://notes-mern-7jjc.onrender.com/api/auth/register";
-
+      ? `${BASE_URL}/api/auth/login`
+      : `${BASE_URL}/api/auth/register`;
     fetch(url, {
       method: "POST", 
       headers: {
