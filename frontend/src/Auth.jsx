@@ -10,8 +10,8 @@ function Auth({ setUser }) {
     e.preventDefault();
 
     const url = isLogin
-      ? "https://notes-backend.onrender.com/api/auth/login"
-      : "https://notes-backend.onrender.com/api/auth/register";
+      ? "https://notes-mern-7jjc.onrender.com/api/auth/login"
+      : "https://notes-mern-7jjc.onrender.com/api/auth/register";
 
     fetch(url, {
       method: "POST", 

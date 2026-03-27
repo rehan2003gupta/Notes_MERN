@@ -20,7 +20,7 @@ function App() {
 
     setLoading(true);
 
-    fetch("https://notes-backend.onrender.com/api/notes", {
+    fetch("https://notes-mern-7jjc.onrender.com//api/notes", {
       headers: {
         Authorization: `Bearer ${user.token}`,
       },
@@ -56,7 +56,7 @@ function App() {
 
     if (!title || !content) return alert("Fill all fields");
 
-    fetch("https://notes-backend.onrender.com/api/notes", {
+    fetch("https://notes-mern-7jjc.onrender.com/api/notes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -74,7 +74,7 @@ function App() {
 
   // DELETE
   const deleteNote = (id) => {
-    fetch(`https://notes-backend.onrender.com/api/notes/${id}`, {
+    fetch(`https://notes-mern-7jjc.onrender.com/api/notes/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${user.token}`,
@@ -91,7 +91,7 @@ function App() {
 
     if (!updatedTitle || !updatedContent) return;
 
-    fetch(`https://notes-backend.onrender.com/api/notes/${note._id}`, {
+    fetch(`https://notes-mern-7jjc.onrender.com/api/notes/${note._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
