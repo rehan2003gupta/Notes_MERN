@@ -14,7 +14,7 @@ function Auth({ setUser }) {
       : "http://localhost:3000/api/auth/register";
 
     fetch(url, {
-      method: "POST",
+      method: "POST", 
       headers: {
         "Content-Type": "application/json",
       },
