@@ -6,12 +6,9 @@ import authRoutes from "./routes/authRoutes.js";
 
 
 const app = express();
-app.use(errorHandler);
+
 app.use(cors({
-  origin: [
-    "https://notes-mern-neon.vercel.app",
-    "http://localhost:5173"
-  ],
+  origin: true, // 🔥 allow all origins temporarily
   credentials: true
 }));
 app.use(json());
@@ -22,5 +19,5 @@ app.use("/api/notes", noteRoutes);
 app.get("/", (req, res) => {
   res.send("API is running 🚀");
 });
-
+app.use(errorHandler);
 export default app;
