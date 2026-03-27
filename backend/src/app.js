@@ -8,8 +8,12 @@ import authRoutes from "./routes/authRoutes.js";
 const app = express();
 app.use(errorHandler);
 app.use(cors({
-  origin:"https://notes-mern-neon.vercel.app"
-}
+  origin: [
+    "https://notes-mern-neon.vercel.app",
+    "http://localhost:5173"
+  ],
+  credentials: true
+}));
 
 ));
 app.use(json());
