@@ -10,8 +10,8 @@ function Auth({ setUser }) {
     e.preventDefault();
 
     const url = isLogin
-      ? "http://localhost:3000/api/auth/login"
-      : "http://localhost:3000/api/auth/register";
+      ? "https://notes-backend.onrender.com/api/auth/login"
+      : "https://notes-backend.onrender.com/api/auth/register";
 
     fetch(url, {
       method: "POST", 
