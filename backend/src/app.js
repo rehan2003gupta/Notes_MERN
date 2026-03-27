@@ -8,16 +8,24 @@ import authRoutes from "./routes/authRoutes.js";
 const app = express();
 
 app.use(cors({
-  origin: true, // 🔥 allow all origins temporarily
+  origin: [
+    "http://localhost:5173",
+    "https://notes-mern-neon.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
-app.use(json());
+
+app.options("/", cors()); // 🔥 add this
+
+app.use(express.json());
+
 app.use("/api/auth", authRoutes);
-// routes
 app.use("/api/notes", noteRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running 🚀");
 });
+
 app.use(errorHandler);
 export default app;

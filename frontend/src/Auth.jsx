@@ -18,7 +18,11 @@ function Auth({ setUser }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify(
+      isLogin
+    ? { email, password }
+    : { name, email, password }
+)
     })
       .then((res) => {
         if (!res.ok) {
