@@ -1,7 +1,7 @@
 import User from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-
+import { sendEmail } from "../utils/sendEmail.js";
 // Generate Token
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -24,7 +24,13 @@ export const registerUser = async (req, res, next) => {
       email,
       password: hashedPassword,
     });
-
+    sendEmail(
+      user.email,
+      "Welcome 🎉",
+      "You have been successfully registered!"
+    ).catch((err) => {
+      console.error("Email failed:", err.message);
+    });
     res.status(201).json({
       _id: user._id,
       name: user.name,
