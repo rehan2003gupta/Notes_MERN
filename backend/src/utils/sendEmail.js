@@ -95,6 +95,7 @@ export const sendEmail = async (to, subject, text) => {
       to,
       subject,
       text,
+      html: text,
     });
 
     console.log("✅ Email sent:", response);
